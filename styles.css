@@ -1,0 +1,68 @@
+*, html {
+    margin:0;
+    padding:0;  
+    background-color: rgb(20, 20, 20);
+}
+
+div.navigationbar {
+    margin-left: 30px;
+    margin-top: 50px;
+    display: flex;
+}
+
+div {
+    margin-right: 1%;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(255, 217, 0, 0.75);
+}
+
+a.current {
+    color: gold;
+}
+
+div.namecard {
+    margin-right: 58%;
+    font-size: 40px;
+}
+
+div.namecard a {
+    color: gold;
+}
+
+div.sections a:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 15px;
+}
+
+div.spacer {
+    height: 150px;
+}
+
+div.aboutmain {
+    display: flex;
+    flex-direction: row;
+}
+
+div.aboutmainsections {
+    width: 40%;
+    margin-left: 4%;
+    margin-right: 3%;
+}
+
+img {
+    padding-left: 30%;
+    text-indent: -999999px;
+    width: 40%;
+    height: auto;
+}
+
+p.intro {
+    color: white;
+    font-size: 20px;
+}
