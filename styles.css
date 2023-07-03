@@ -4,6 +4,7 @@
     background-color: rgb(20, 20, 20);
 }
 
+
 div.navigationbar {
     margin-left: 30px;
     margin-top: 50px;
@@ -90,3 +91,34 @@ div.underconstruction {
 div.footer {
     height: 150px;
 }
+
+@media screen and (max-width: 1500px) {
+    div.namecard {
+        margin-right: 50%;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    div.namecard {
+        margin-right: 30%;
+        font-size: 40px;
+    }
+    div.aboutmain {
+        display: block;
+        padding: 0px;
+    }
+    img {
+        padding-top: 50px;
+        display: block;
+        text-indent: -999999px;
+        padding-left: 10%;
+        width: 80%;
+        height: auto;
+    }
+    div.aboutmainsections {
+        margin-left: 15%;
+        width: 70%;
+        margin-bottom: 40px;
+    }
+} /* For medium-large screens */
