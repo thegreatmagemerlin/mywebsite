@@ -11,18 +11,23 @@
     padding-top: 75px;
 }
 
+
+
+/* --General-- */
+/* ---------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+/* --Hamburger-- */
+
 .namecard a{
     color: gold;
     text-decoration: none;
     font-size: 50px;
 }
+
 .namecard {
     padding-left: 100px;
     padding-top: 60px;
 }
-
-/* ---------------------------------------------------------------------------------------------------- */
-/* ---------------------------------------------------------------------------------------------------- */
 
 .hamburger {
     display: flex;
@@ -127,20 +132,81 @@
     opacity: 1;
 }
 
+.desktop {
+    display: none;
+}
+
+@media screen and (min-width: 1150px) {
+    .mobile, .tablet {
+        display: none;
+    }
+    
+    .desktop {
+        display: flex;
+    }
+
+    .namecard {
+        padding-right: calc(8px + 20vw);
+    }
+
+    .sections {
+        position: relative;
+        top: 65px;
+        padding: 0px;
+        padding-left: 3%;
+        width: fit-content;
+        height: fit-content;
+        font-size: 45px;
+    }
+}
+
+/* @media screen and (min-width: 1200px) {
+    .namecard {
+        padding-right: 17vw;
+    }
+}
+
+@media screen and (min-width: 1350px) {
+    .namecard {
+        padding-right: 25vw;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .namecard {
+        padding-right: 31vw;
+    }
+}
+
+@media screen and (min-width: 1650px) {
+    .namecard {
+        padding-right: 38vw;
+    }
+} */
+
+/* --Hamburger-- */
 /* ---------------------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------- */
+/* --Home Page-- */
 
 .spacer {
 
     height: 100px;
 }
 
-img {
+
+
+.profile-picture {
     width: 600px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 100px;
+    margin-bottom: 100px;
+}
+
+.training-picture {
+    width: 0px;
+    height: 0px;
 }
 
 p {
@@ -162,6 +228,29 @@ h2 {
     font-size: 35px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+@media screen and (min-width: 1150px) {
+    .about-main {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .training-picture {
+        visibility: visible;
+    }
+
+    .profile-picture, .training-picture {
+        width: 450px;
+        height: 450px;
+        margin-left: 65px;
+        margin-top: 50px;
+        margin-bottom: 200px;
+    }
+}
+
+/* --Home Page-- */
+/* ---------------------------------------------------------------------------------------------------- */
+/* --Projects Page-- */
 
 .project-topics {
     display: flex;
