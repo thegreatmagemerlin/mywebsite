@@ -159,31 +159,6 @@
         font-size: 45px;
     }
 }
-
-/* @media screen and (min-width: 1200px) {
-    .namecard {
-        padding-right: 17vw;
-    }
-}
-
-@media screen and (min-width: 1350px) {
-    .namecard {
-        padding-right: 25vw;
-    }
-}
-
-@media screen and (min-width: 1500px) {
-    .namecard {
-        padding-right: 31vw;
-    }
-}
-
-@media screen and (min-width: 1650px) {
-    .namecard {
-        padding-right: 38vw;
-    }
-} */
-
 /* --Hamburger-- */
 /* ---------------------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------- */
@@ -279,7 +254,6 @@ h2 {
     background-position: center;
     background-position-y: -5px;
     background-repeat: no-repeat;
-    background-color: white;
 }
 
 .project-link {
@@ -333,6 +307,36 @@ a {
 
 .plink:hover {
     text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+.table-contents {
+    font-size: 60px;
+}
+
+.table-contents-sections {
+    font-size: 40px;
+    color: rgb(255, 242, 167);
+}
+
+.explain {
+    font-size: 10.9px;
+    letter-spacing: 1.5;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-images {
+    width: 800px;
+    margin-bottom: 50px;
+    margin-top: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
