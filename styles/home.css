@@ -1,0 +1,13 @@
+.intro-text {
+  font-size: 1.1rem;
+  margin-bottom: 4rem;
+  text-align: justify;
+}
+
+/* Responsive Text Sizes */
+@media (max-width: 1000px) {
+  .intro-text {
+    font-size: 0.75rem;
+    text-align: left;
+  } 
+}

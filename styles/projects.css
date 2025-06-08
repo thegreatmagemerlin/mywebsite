@@ -1,0 +1,48 @@
+/* Project Section container */
+.project-section {
+  margin-bottom: 3rem;
+}
+
+/* Project Card */
+.project-card {
+  background-color: var(--card-bg);
+  border-left: 4px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.project-card:hover {
+  background-color: var(--hover-bg);
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: #cfcfcf;
+}
+
+/* Table of Contents */
+.toc {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.toc ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.toc li {
+  margin: 0.5rem 0;
+}
+
+.toc a {
+  font-weight: 600;
+}

@@ -1,0 +1,55 @@
+section {
+    padding-bottom: 25px;
+    width: 100%;
+    max-width: 1500px;
+}
+
+.image-paragraph img {
+  max-width: 500px;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  align-self: flex-start;
+}
+
+.image-paragraph {
+    display: flex;
+    width: 100%;
+    align-items: stretch; /* Make children the same height */
+    justify-content: space-between; /* pushes image to left and paragraph to right */
+}
+
+.image-paragraph p {
+    width: 75%;
+    padding-right: 1rem;
+}
+
+.left-image p {
+    padding-left: 1rem;
+}
+.left-image img {
+    padding-top: 0.5rem;
+}
+
+@media (max-width: 1000px) {
+section{
+    align-items: center;
+    width: 100%;
+}
+
+.image-paragraph {
+    flex-direction: column;
+    align-items: center;      /* Vertically center */
+    justify-content: center;  /* Horizontally center */
+}
+
+.image-paragraph p{
+    width: 100%;
+    max-width: 100%;
+}
+.image-paragraph img {
+    align-self: center;
+    padding-top: 1rem;
+}
+}
