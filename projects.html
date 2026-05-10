@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects by Shanks — engineering builds across biomedical, mechatronics, software, and more." />
+
+  <title>Projects / Shanks</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ── Navigation ──────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        Shanks<span> / portfolio</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html"    class="nav__link">home</a></li>
+        <li><a href="projects.html" class="nav__link nav__link--active">projects</a></li>
+        <li><a href="index.html#about" class="nav__link">about</a></li>
+      </ul>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="nav-mobile">
+      <a href="index.html"       class="nav__link">home</a>
+      <a href="projects.html"    class="nav__link nav__link--active">projects</a>
+      <a href="index.html#about" class="nav__link">about</a>
+    </div>
+  </nav>
+
+  <!-- ── Page header ─────────────────────────────────────── -->
+  <header class="projects-header">
+    <div class="container">
+      <p class="overline" style="margin-bottom: var(--sp-3);">All work</p>
+      <h1 class="projects-header__title">Projects.</h1>
+      <p class="projects-header__sub">
+        A running record of things I've built, explored, and shipped.
+        Spans engineering, software, and whatever else catches my attention.
+      </p>
+    </div>
+  </header>
+
+  <!-- ── Filter bar ──────────────────────────────────────── -->
+  <section class="projects-filters">
+    <div class="container">
+      <!-- Category tabs -->
+      <div class="filter-tabs" id="filter-tabs">
+        <button class="filter-tab filter-tab--active" data-filter="all">All</button>
+        <!-- More tabs injected by projects.js based on categories in data -->
+      </div>
+
+      <!-- Tag filter pills -->
+      <div class="filter-tags" id="filter-tags">
+        <!-- Injected by projects.js -->
+      </div>
+
+      <!-- Search -->
+      <div class="filter-search">
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Search projects..."
+          autocomplete="off"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Project grid ─────────────────────────────────────── -->
+  <main class="projects-main">
+    <div class="container">
+
+      <!-- Result count -->
+      <div class="projects-meta" id="projects-meta">
+        <!-- e.g. "Showing 3 projects" — injected by JS -->
+      </div>
+
+      <!-- Cards -->
+      <div class="projects-grid" id="projects-grid">
+        <!-- Injected by projects.js -->
+      </div>
+
+      <!-- Empty state -->
+      <div class="projects-empty" id="projects-empty" style="display:none;">
+        <p class="projects-empty__text">No projects match that filter.</p>
+        <button class="btn btn--ghost" id="clear-filters">Clear filters</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__name"><span>Shanks</span> — barathshankar.com</span>
+      <nav class="footer__links">
+        <a href="projects.html"    class="footer__link">Projects</a>
+        <a href="index.html#about" class="footer__link">About</a>
+      </nav>
+    </div>
+  </footer>
+
+</div>
+
+<script src="data/projects.js"></script>
+<script src="js/main.js"></script>
+<script src="js/projects.js"></script>
+</body>
+</html>

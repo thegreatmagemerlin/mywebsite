@@ -3,63 +3,224 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Barath's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/styles.css" />
-  <link rel="stylesheet" href="styles/home.css" />
+  <meta name="description" content="Shanks — Biomedical engineering student at Monash University. Projects, philosophies, and a genuine curiosity for everything." />
+
+  <title>Shanks</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles — order matters -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
-  <div class="wrapper">
-  <div class="container">
-    <header class="site-header">
-      <h1><a href="https://www.linkedin.com/in/barath-ravi-shankar" target="_blank", title="LinkedIn">Barath</a></h1>
-      <nav class="nav-links">
-        <a href="Pages/projects.html">Projects</a>
-        <a href="Pages/blogs.html">Blogs</a>
-      </nav>
-    </header>
+<div class="page-wrapper">
 
-    <main>
-      <section class="intro-text">
-        <p>
-          Thank you for visiting my website. This is the medium through which I share my personal philosophies,
-          projects, and blogs. I hope you're able to take something from it, whether it's entertainment,
-          learning, or a deeper understanding of a concept. <br>I genuinely hope you enjoy your stay and leave having
-          learned something new.
+  <!-- ── Navigation ──────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        Shanks<span> / portfolio</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav__links">
+        <li><a href="index.html"    class="nav__link nav__link--active">home</a></li>
+        <li><a href="projects.html" class="nav__link">projects</a></li>
+        <li><a href="#about"        class="nav__link">about</a></li>
+      </ul>
+
+      <!-- Mobile toggle -->
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="nav__mobile" id="nav-mobile">
+      <a href="index.html"    class="nav__link nav__link--active">home</a>
+      <a href="projects.html" class="nav__link">projects</a>
+      <a href="#about"        class="nav__link">about</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+
+        <div class="hero__eyebrow">
+          <div class="hero__eyebrow-line"></div>
+          <span class="overline">Biomedical Engineering · Monash University</span>
+        </div>
+
+        <h1 class="hero__name">
+          <span class="hero__name-accent">Shanks.</span>
+        </h1>
+
+        <p class="hero__title">
+          <strong>Barath Shankar Ravi Shankar</strong> — engineer, fighter, builder.
         </p>
-        <br>
-        <h2>A little about me</h2>
-        <p>
-          I'm a biomedical engineering student at Monash University. I work on several personal projects that are either inspired 
-          by others, or by my own personal interests/needs. I work as a private tutor, helping students with their understanding. I 
-          have been blessed with being able to understand maths and science well, so I believe it is my duty to impart that knowledge 
-          onto others. I hope that my efforts help in raising the next generation to be bright and intelligent. 
-          <br><br>
-          Outside academics, I am a Kyokushin fighter. For those of you unaware of 
-          <a href="https://www.youtube.com/watch?v=maiQ2SzSJnM&t=44s&ab_channel=kyokushinbul" target="_blank">Kyokushin</a>
-          , its a brutal, full contact, Japanese martial art. Through the teachings of my instructor 
-          <a href="https://www.azumadojo.com/", target="_blank">Ryuichi Azuma Sensei</a>
-          , I was able to secure 
-          the state championship for my rank and weight. Kyokushin has built discipline and perseverance for me like nothing else.  
-          I am also a gymrat, and have been in the gym from when I was in highschool. I train for my sport, but also for 
-          hypertrophy. Exercise improves not only your health physically, but also mentally. I have found that exercise helps put me 
-          in a better mood, and even helps me cognitively. 
-          <br><br>
-          I am also avid fan of fiction. My passion for science stems from the shows that I used to watch as a kid. Watching shows 
-          like STAR WARS made me wish for a world like that (without the mass murdering of planets, of course). Watching Iron Man and 
-          Spiderman made me want to be a better person and pushed me to learn more about STEM to hopefully be like them one day. I am also 
-          a fan of anime and manga, where stories follow the protagonist who does not buckle when faced against struggles. It truly depicts 
-          the indomitable human spirit when put against the indifferent cruelty of the world. 
-          <br><br>
-          At the end of the day, whether I'm in the lab, the dojo, or lost in a fictional world, I just want to keep learning, 
-          keep building, and help make life a little better, for myself and for others.
+
+        <p class="hero__description">
+          This is where I share my projects, philosophies, and blogs. Whether you're
+          here for something to learn, something to think about, or just to see what
+          I've been building, I hope you leave with something worthwhile.
         </p>
-      </section>
-    </main>
-  </div>
-  </div>
-  <footer class="site-footer">
-    <p>Contact me at: <a href="mailto:mail@barathshankar.com">mail@barathshankar.com</a></p>
-  </footer>  
+
+        <div class="hero__actions">
+          <a href="projects.html" class="btn btn--primary">View projects →</a>
+          <a href="#about"        class="btn btn--ghost">About me</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll">
+      <span class="hero__scroll-text">scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── About strip ──────────────────────────────────────── -->
+  <section class="about-strip section--sm reveal" id="about">
+    <div class="container">
+      <div class="about-strip__grid">
+
+        <div>
+          <p class="overline about-strip__label">About</p>
+          <h2 class="about-strip__heading">
+            Keep learning.<br />
+            <em>Keep building.</em>
+          </h2>
+          <p class="about-strip__body">
+            I'm Barath, a biomedical engineering student at Monash University. I work on personal
+            projects driven either by my own interests and needs, or by ideas I stumble across that
+            are too interesting to ignore. Outside of engineering, I work as a private tutor. I've
+            been fortunate enough to understand maths and science well, and I think that comes with
+            a responsibility to pass it on.
+          </p>
+          <p class="about-strip__body" style="margin-top: 1rem;">
+            I'm also a gymrat, and have been training since high school. I train for hypertrophy,
+            but the mental benefits are just as real to me. Exercise puts me in a better mood and
+            genuinely helps me think more clearly. It's one of those things that improves every
+            other part of your life just by doing it consistently.
+          </p>
+          <p class="about-strip__body" style="margin-top: 1rem;">
+            My passion for science started young. Star Wars, Iron Man, Spiderman, and later anime
+            and manga, all of it pushed me toward STEM and shaped how I think about what engineering
+            is for.
+          </p>
+          <p class="about-strip__body" style="margin-top: 1.5rem; color: var(--text-primary); font-style: italic;">
+            At the end of the day, whether I'm in the lab, the gym, or lost in a fictional world,
+            I just want to keep learning, keep building, and help make life a little better, for
+            myself and for others.
+          </p>
+        </div>
+
+        <div class="about-strip__stats">
+          <div class="stat-card reveal">
+            <div class="stat-card__value">2</div>
+            <div class="stat-card__label">Projects shipped</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-card__value">Tutor</div>
+            <div class="stat-card__label">Maths &amp; Science</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-card__value">BME</div>
+            <div class="stat-card__label">Monash University</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-card__value">∞</div>
+            <div class="stat-card__label">Curiosity remaining</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Disciplines ──────────────────────────────────────── -->
+  <section class="disciplines section--sm reveal">
+    <div class="container">
+      <p class="overline" style="margin-bottom: var(--sp-3);">What I work with</p>
+      <h2 class="disciplines__heading">Built across disciplines.</h2>
+      <p class="disciplines__sub">
+        Engineering doesn't stop at one field. Neither do I.
+      </p>
+
+      <div class="disciplines__grid">
+        <div class="discipline-card reveal">
+          <div class="discipline-card__icon">⚙️</div>
+          <div class="discipline-card__name">Mechatronics</div>
+          <div class="discipline-card__desc">
+            Robotics, control systems, embedded hardware, and the integration of
+            mechanical and electrical systems.
+          </div>
+        </div>
+        <div class="discipline-card reveal">
+          <div class="discipline-card__icon">🧬</div>
+          <div class="discipline-card__name">Biomedical Engineering</div>
+          <div class="discipline-card__desc">
+            Biosignal processing, medical device design, and engineering solutions
+            at the human-machine interface.
+          </div>
+        </div>
+        <div class="discipline-card reveal">
+          <div class="discipline-card__icon">💻</div>
+          <div class="discipline-card__name">Software & Systems</div>
+          <div class="discipline-card__desc">
+            The code layer — from embedded firmware to data pipelines and the
+            tools that make systems intelligent.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Projects ────────────────────────────────── -->
+  <section class="featured section--sm reveal">
+    <div class="container">
+      <div class="featured__header">
+        <div>
+          <p class="overline" style="margin-bottom: var(--sp-3);">Selected work</p>
+          <h2 class="featured__heading">Featured projects.</h2>
+        </div>
+        <a href="projects.html" class="btn btn--ghost">All projects →</a>
+      </div>
+
+      <div class="featured__grid" id="featured-grid">
+        <!-- Populated by main.js from data/projects.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__name">
+        <span>Shanks</span> — barathshankar.com
+      </span>
+      <nav class="footer__links">
+        <a href="projects.html" class="footer__link">Projects</a>
+        <a href="#about"        class="footer__link">About</a>
+        <!-- Add GitHub / LinkedIn here once you have them -->
+      </nav>
+    </div>
+  </footer>
+
+</div><!-- /page-wrapper -->
+
+<!-- Scripts — data layer first, then shared logic -->
+<script src="data/projects.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

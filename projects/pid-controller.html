@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- EDIT: update title and description for each project -->
+  <meta name="description" content="PID Controller System — project by Shanks." />
+  <title>PID Controller / Shanks</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/project-detail.css" />
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ── Navigation ──────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        Shanks<span> / portfolio</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="../index.html"    class="nav__link">home</a></li>
+        <li><a href="../projects.html" class="nav__link nav__link--active">projects</a></li>
+        <li><a href="../index.html#about" class="nav__link">about</a></li>
+      </ul>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="nav-mobile">
+      <a href="../index.html"       class="nav__link">home</a>
+      <a href="../projects.html"    class="nav__link nav__link--active">projects</a>
+      <a href="../index.html#about" class="nav__link">about</a>
+    </div>
+  </nav>
+
+  <!-- ── Project header ──────────────────────────────────── -->
+  <header class="detail-header">
+    <div class="container">
+
+      <!-- Back link -->
+      <a href="../projects.html" class="detail-back">← All projects</a>
+
+      <!-- EDIT: category and year -->
+      <div class="detail-header__meta">
+        <span class="detail-category">Engineering</span>
+        <span class="detail-dot">·</span>
+        <span class="detail-year">2025</span>
+        <span class="detail-dot">·</span>
+        <!-- EDIT: status — 'Complete', 'In Progress', or 'Archived' -->
+        <span class="status-badge status-badge--complete">Complete</span>
+      </div>
+
+      <!-- EDIT: project title -->
+      <h1 class="detail-header__title">PID Controller System</h1>
+
+      <!-- EDIT: one sentence that captures the project's purpose -->
+      <p class="detail-header__lead">
+        A placeholder lead sentence describing what this project is and why it exists.
+        Keep it to one or two sentences.
+      </p>
+
+      <!-- EDIT: your tags — must match what's in data/projects.js -->
+      <div class="detail-header__tags">
+        <span class="tag">Control Systems</span>
+        <span class="tag">Embedded</span>
+        <span class="tag">C++</span>
+        <span class="tag">Mechatronics</span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ── Main content ─────────────────────────────────────── -->
+  <main class="detail-main">
+    <div class="container">
+      <div class="detail-layout">
+
+        <!-- ── Left: content column ──────────────────────── -->
+        <article class="detail-content">
+
+          <!-- ================================================
+               MEDIA SECTION
+               Uncomment and use whichever you need.
+               You can have multiple image/video blocks.
+               ================================================ -->
+
+          <!-- SINGLE IMAGE -->
+          <!--
+          <figure class="detail-media">
+            <img
+              src="../assets/images/pid-main.jpg"
+              alt="PID controller diagram"
+              class="detail-img"
+            />
+            <figcaption>Caption describing the image.</figcaption>
+          </figure>
+          -->
+
+          <!-- VIDEO (mp4 hosted locally) -->
+          <!--
+          <figure class="detail-media">
+            <video class="detail-video" controls>
+              <source src="../assets/videos/pid-demo.mp4" type="video/mp4" />
+              Your browser does not support video.
+            </video>
+            <figcaption>Demo of the system running.</figcaption>
+          </figure>
+          -->
+
+          <!-- YOUTUBE EMBED -->
+          <!--
+          <figure class="detail-media">
+            <div class="detail-video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                title="Project demo"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <figcaption>YouTube demo.</figcaption>
+          </figure>
+          -->
+
+          <!-- IMAGE GALLERY (multiple images) -->
+          <!--
+          <div class="detail-gallery">
+            <img src="../assets/images/pid-1.jpg" alt="Step 1" class="detail-img" />
+            <img src="../assets/images/pid-2.jpg" alt="Step 2" class="detail-img" />
+          </div>
+          -->
+
+          <!-- ================================================
+               WRITTEN CONTENT
+               Edit the sections below with your project write-up.
+               Add or remove <section> blocks as needed.
+               ================================================ -->
+
+          <section class="detail-section">
+            <h2>Overview</h2>
+            <!-- EDIT: what is this project? What does it do? -->
+            <p>
+              Write a clear overview of your project here. What is it? What does it do?
+              Who is it for? This is the first thing a reader sees so make it count.
+            </p>
+          </section>
+
+          <section class="detail-section">
+            <h2>The problem</h2>
+            <!-- EDIT: what problem were you solving, or what motivated the project? -->
+            <p>
+              Describe what motivated this project. What problem were you trying to solve,
+              or what gap were you filling? Give the reader context for why this matters.
+            </p>
+          </section>
+
+          <section class="detail-section">
+            <h2>How it works</h2>
+            <!-- EDIT: explain the technical approach -->
+            <p>
+              Explain the technical approach. How did you build it? What are the key components?
+              You can use the code block below if relevant.
+            </p>
+
+            <!-- CODE BLOCK — remove if not needed -->
+            <pre class="detail-code"><code>// Example code snippet
+// Replace or remove this block
+float pid_compute(float setpoint, float measured) {
+    float error = setpoint - measured;
+    integral += error * dt;
+    float derivative = (error - prev_error) / dt;
+    prev_error = error;
+    return Kp*error + Ki*integral + Kd*derivative;
+}</code></pre>
+          </section>
+
+          <section class="detail-section">
+            <h2>Results</h2>
+            <!-- EDIT: what did you achieve? What did you learn? -->
+            <p>
+              What were the outcomes? Did it work as expected? What would you do differently?
+              Be honest — showing your thinking process is more impressive than a polished result.
+            </p>
+          </section>
+
+          <!-- Add more sections as needed:
+          <section class="detail-section">
+            <h2>Your section title</h2>
+            <p>Your content.</p>
+          </section>
+          -->
+
+        </article>
+
+        <!-- ── Right: sidebar ─────────────────────────────── -->
+        <aside class="detail-sidebar">
+
+          <!-- Project info -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Project info</h3>
+            <dl class="sidebar-info">
+
+              <!-- EDIT: update each value -->
+              <dt>Status</dt>
+              <dd><span class="status-badge status-badge--complete">Complete</span></dd>
+
+              <dt>Year</dt>
+              <dd>2025</dd>
+
+              <dt>Category</dt>
+              <dd>Engineering</dd>
+
+              <!-- EDIT: add/remove tools as needed -->
+              <dt>Tools</dt>
+              <dd>C++, Arduino, MATLAB</dd>
+
+              <!-- EDIT: duration if relevant -->
+              <dt>Duration</dt>
+              <dd>6 weeks</dd>
+
+            </dl>
+          </div>
+
+          <!-- Links — remove any that don't apply -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Links</h3>
+            <div class="sidebar-links">
+
+              <!-- EDIT: replace # with real URLs, or remove the block -->
+              <a href="#" class="sidebar-link" target="_blank">
+                <span>GitHub repo</span>
+                <span class="sidebar-link__arrow">↗</span>
+              </a>
+
+              <!-- Uncomment if you have a live demo -->
+              <!--
+              <a href="#" class="sidebar-link" target="_blank">
+                <span>Live demo</span>
+                <span class="sidebar-link__arrow">↗</span>
+              </a>
+              -->
+
+              <!-- Uncomment if you have a report/paper -->
+              <!--
+              <a href="#" class="sidebar-link" target="_blank">
+                <span>Report (PDF)</span>
+                <span class="sidebar-link__arrow">↗</span>
+              </a>
+              -->
+
+            </div>
+          </div>
+
+          <!-- Next project — EDIT: point to your next project -->
+          <div class="sidebar-card sidebar-card--next">
+            <p class="sidebar-next__label overline">Up next</p>
+            <a href="../projects.html" class="sidebar-next__link">
+              Browse all projects →
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__name"><span>Shanks</span> — barathshankar.com</span>
+      <nav class="footer__links">
+        <a href="../projects.html"    class="footer__link">Projects</a>
+        <a href="../index.html#about" class="footer__link">About</a>
+      </nav>
+    </div>
+  </footer>
+
+</div>
+
+<script src="../data/projects.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

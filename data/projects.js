@@ -1,0 +1,59 @@
+/* ============================================================
+   data/projects.js — Single source of truth for all projects.
+
+   HOW TO ADD A NEW PROJECT:
+   1. Copy one of the existing project objects below
+   2. Fill in your details (see field guide below)
+   3. Set featured: true if you want it on the homepage (max 4)
+   4. Create a new file at the path you set in `url`
+   5. That's it — it will appear on the projects page automatically
+
+   FIELD GUIDE:
+   ┌─────────────┬────────────────────────────────────────────────────┐
+   │ id          │ Unique slug, no spaces (e.g. 'pid-controller')     │
+   │ title       │ Display title shown on cards and detail pages      │
+   │ summary     │ 1-2 sentences shown on project cards               │
+   │ description │ Longer description shown on the projects list page │
+   │ tags        │ Array of strings — used for filtering              │
+   │             │ Use consistent naming: 'Python', not 'python'      │
+   │ category    │ Primary category for filter tabs                   │
+   │             │ Options: 'Engineering', 'Software', 'Biomedical',  │
+   │             │          'Research', 'Other'                       │
+   │ year        │ String e.g. '2025'                                 │
+   │ status      │ 'Complete', 'In Progress', or 'Archived'          │
+   │ featured    │ true/false — shows on homepage (keep to max 4)     │
+   │ url         │ Path to the detail page HTML file                  │
+   │ thumb       │ Path to thumbnail image (optional, can be null)    │
+   └─────────────┴────────────────────────────────────────────────────┘
+   ============================================================ */
+
+const PROJECTS = [
+  {
+    id:          'pid-controller',
+    title:       'PID Controller System',
+    summary:     'A PID control system built to [brief summary — fill this in].',
+    description: 'A longer description of what the project does, what problem it solves, and what you learned. You can write 2-3 sentences here. This shows on the projects listing page.',
+    tags:        ['Control Systems', 'Embedded', 'C++', 'Mechatronics'],
+    category:    'Engineering',
+    year:        '2025',
+    status:      'Complete',
+    featured:    true,
+    url:         'projects/pid-controller.html',
+    thumb:       null, // e.g. 'assets/images/pid-thumb.jpg'
+  },
+
+  // ── ADD YOUR NEXT PROJECT BELOW THIS LINE ─────────────────
+  // {
+  //   id:          'my-next-project',
+  //   title:       'My Next Project',
+  //   summary:     'One or two sentences.',
+  //   description: 'Longer description for the listing page.',
+  //   tags:        ['Tag1', 'Tag2'],
+  //   category:    'Software',
+  //   year:        '2025',
+  //   status:      'In Progress',
+  //   featured:    false,
+  //   url:         'projects/my-next-project.html',
+  //   thumb:       null,
+  // },
+];

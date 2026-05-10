@@ -1,0 +1,196 @@
+/* ============================================================
+   layout.css — Nav, footer, and shared page-level structure.
+   Imported by every page after base.css.
+   ============================================================ */
+
+/* ── Nav ───────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  /* Starts transparent, JS adds .nav--scrolled */
+  background: transparent;
+  transition: background var(--t-slow), border-color var(--t-slow),
+              backdrop-filter var(--t-slow);
+  border-bottom: 1px solid transparent;
+}
+
+.nav--scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--border);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--sp-6);
+}
+
+/* Logo */
+.nav__logo {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  transition: color var(--t-fast);
+}
+
+.nav__logo span {
+  color: var(--gold);
+}
+
+.nav__logo:hover {
+  color: var(--gold);
+}
+
+/* Links */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+}
+
+.nav__link {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  transition: color var(--t-fast);
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width var(--t-base);
+}
+
+.nav__link:hover,
+.nav__link--active {
+  color: var(--text-primary);
+}
+
+.nav__link:hover::after,
+.nav__link--active::after {
+  width: 100%;
+}
+
+/* Mobile menu toggle */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--sp-2);
+  cursor: pointer;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text-secondary);
+  transition: all var(--t-base);
+}
+
+/* Mobile nav drawer */
+.nav__mobile {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: var(--sp-6);
+  flex-direction: column;
+  gap: var(--sp-4);
+  z-index: 99;
+  transform: translateY(-8px);
+  opacity: 0;
+  transition: transform var(--t-base), opacity var(--t-base);
+}
+
+.nav__mobile.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.nav__mobile .nav__link {
+  font-size: var(--text-base);
+  padding-block: var(--sp-2);
+}
+
+@media (max-width: 640px) {
+  .nav__links  { display: none; }
+  .nav__toggle { display: flex; }
+  .nav__mobile { display: flex; }
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding-block: var(--sp-10);
+  margin-top: var(--sp-24);
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--sp-6);
+}
+
+.footer__name {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.footer__name span {
+  color: var(--gold);
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--sp-6);
+}
+
+.footer__link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color var(--t-fast);
+}
+
+.footer__link:hover {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+  .footer__inner { flex-direction: column; align-items: flex-start; }
+}
