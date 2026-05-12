@@ -35,11 +35,11 @@ const PROJECTS = [
     description: 'A longer description of what the project does, what problem it solves, and what you learned. You can write 2-3 sentences here. This shows on the projects listing page.',
     tags:        ['Control Systems', 'Embedded', 'C++', 'Mechatronics'],
     category:    'Engineering',
-    year:        '2025',
+    year:        '2026',
     status:      'Complete',
     featured:    true,
     url:         'projects/pid-controller.html',
-    thumb:       null, // e.g. 'assets/images/pid-thumb.jpg'
+    thumb:       'assets/images/pid-thumb.png'
   },
 
   // ── ADD YOUR NEXT PROJECT BELOW THIS LINE ─────────────────
