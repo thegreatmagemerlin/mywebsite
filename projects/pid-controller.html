@@ -15,6 +15,18 @@
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/layout.css" />
   <link rel="stylesheet" href="../css/project-detail.css" />
+
+  <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true  },
+        { left: '$',  right: '$',  display: false }
+      ]
+      });">
+    </script>
 </head>
 <body>
 <div class="page-wrapper">
@@ -105,12 +117,15 @@
           -->
 
           <!-- VIDEO (mp4 hosted locally) -->
-
+          <!--
           <figure class="detail-media">
             <video class="detail-video" controls>
-              <source src="../assets/videos/pid-demo.mov" type="video/mov" />            </video>
-            <figcaption>Live demo of motors stabilising the system</figcaption>
+              <source src="../assets/videos/pid-demo.mp4" type="video/mp4" />
+              Your browser does not support video.
+            </video>
+            <figcaption>Demo of the system running.</figcaption>
           </figure>
+          -->
 
           <!-- YOUTUBE EMBED -->
           <!--
@@ -145,8 +160,14 @@
             <h2>Overview</h2>
             <!-- EDIT: what is this project? What does it do? -->
             <p>
-              Write a clear overview of your project here. What is it? What does it do?
-              Who is it for? This is the first thing a reader sees so make it count.
+              This project is a single-axis drone stabilization platform built to learn and implement PID control in a real embedded system.
+              <br><br>
+              Using an Arduino, an MPU6050 IMU, and two DC motors, the system measures pitch angle in real time and applies corrective motor 
+              output to balance around a target angle. The platform was designed as a simplified drone control system to isolate and understand 
+              the core principles behind quadcopter stabilization before moving to a full multi-axis drone.
+              <br><br>
+              The project focuses not only on implementing PID mathematically, but also on solving the real-world engineering problems that appear 
+              in physical control systems, including electrical noise, actuator dead zones, timing inconsistencies, and integral windup.
             </p>
           </section>
 
@@ -154,8 +175,21 @@
             <h2>The problem</h2>
             <!-- EDIT: what problem were you solving, or what motivated the project? -->
             <p>
-              Describe what motivated this project. What problem were you trying to solve,
-              or what gap were you filling? Give the reader context for why this matters.
+              A drone remains stable by continuously correcting its orientation. Even small tilts must be detected and corrected rapidly to prevent instability.
+              <br><br>
+              The challenge was to build a system capable of:
+              <ul>
+                <li>Accurately measuring pitch angle in real-time</li>
+                <li>Determining how far the system is from the target angle</li>
+                <li>Applying motor corrections smoothly and quickly enough to restore balance</li>
+              </ul>
+              </p>
+              
+              <p>
+              A major difficulty was that real hardware behaves differently from ideal mathematical models. 
+              Motors do not respond linearly at low PWM values, sensors contain noise, and timing inconsistencies 
+              can destabilize the controller. The project therefore became an exercise in both control theory and 
+              practical embedded systems engineering.
             </p>
           </section>
 
@@ -163,20 +197,49 @@
             <h2>How it works</h2>
             <!-- EDIT: explain the technical approach -->
             <p>
-              Explain the technical approach. How did you build it? What are the key components?
-              You can use the code block below if relevant.
+              The MPU6050 IMU measures the pitch angle of the system in real time using its onboard Digital Motion 
+              Processor (DMP). The Arduino reads this angle and compares it to a target setpoint of 0°.
+              <br><br>
+              The controller then calculates an error value:
             </p>
+            <p>$\text{Error} = \text{Setpoint} - \text{Measured Angle}$</p>
+            <p>
+              A PID controller is used to generate corrective motor output:
+            </p>
+            <p>$\text{Output} = \text{Kp} \cdot \text{Error} + \text{Ki} \cdot \int \text{Error} \cdot \text{dt} + \text{Kd} \cdot \text{d(Error)} / \text{dt}$</p>
+            <p>Each term serves a different purpose:</p>
+            <ul>
+              <li>Proportional (P): Reacts to current tilt error and provides the main corrective force.</li>
+              <li>Integral (I): Corrects long-term offset and steady-state error.</li>
+              <li>Derivative (D): Dampens oscillation by reacting to rapid motion.</li>
+            </ul>
+            <p>
+              The motor outputs are adjusted using PWM signals through IRLZ44N MOSFETs, allowing the system to increase 
+              thrust on one side and reduce it on the other to counteract tilt.
+            </p>
+          </section>
 
-            <!-- CODE BLOCK — remove if not needed -->
-            <pre class="detail-code"><code>// Example code snippet
-// Replace or remove this block
-float pid_compute(float setpoint, float measured) {
-    float error = setpoint - measured;
-    integral += error * dt;
-    float derivative = (error - prev_error) / dt;
-    prev_error = error;
-    return Kp*error + Ki*integral + Kd*derivative;
-}</code></pre>
+          <section class="detail-section">
+            <h2>Engineering challenges</h2>
+            <!-- EDIT: describe the real problems you ran into -->
+            <p>
+              Describe the specific technical challenges you faced during this project.
+              What didn't work the way you expected? What took the longest to figure out?
+            </p>
+            <p>
+              Be specific — a recruiter or engineer reading this wants to see how you
+              think through problems, not just that the project worked.
+            </p>
+          </section>
+
+          <section class="detail-section">
+            <h2>Future improvements</h2>
+            <!-- EDIT: what would you do next if you continued this project? -->
+            <p>
+              If you were to continue this project, what would you change or add?
+              This could be hardware upgrades, algorithmic improvements, additional
+              features, or a completely different approach informed by what you learned.
+            </p>
           </section>
 
           <section class="detail-section">
@@ -210,7 +273,7 @@ float pid_compute(float setpoint, float measured) {
               <dd><span class="status-badge status-badge--complete">Complete</span></dd>
 
               <dt>Year</dt>
-              <dd>2025</dd>
+              <dd>2026</dd>
 
               <dt>Category</dt>
               <dd>Engineering</dd>
@@ -232,7 +295,7 @@ float pid_compute(float setpoint, float measured) {
             <div class="sidebar-links">
 
               <!-- EDIT: replace # with real URLs, or remove the block -->
-              <a href="#" class="sidebar-link" target="_blank">
+              <a href="https://github.com/thegreatmagemerlin/PID-test-system" class="sidebar-link" target="_blank">
                 <span>GitHub repo</span>
                 <span class="sidebar-link__arrow">↗</span>
               </a>

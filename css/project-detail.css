@@ -212,6 +212,56 @@
   .detail-gallery { grid-template-columns: 1fr; }
 }
 
+/* ── KaTeX equations ────────────────────────────────────────── */
+.detail-section .katex-display {
+  margin-block: var(--sp-6);
+  overflow-x: auto;        /* scrolls on mobile if equation is wide */
+  padding-block: var(--sp-2);
+}
+
+.detail-section .katex {
+  font-size: 1.05em;
+  color: var(--text-primary);
+}
+
+/* ── Lists ──────────────────────────────────────────────────── */
+.detail-section ul,
+.detail-section ol {
+  margin-block: var(--sp-4);
+  padding-left: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.detail-section ul { list-style: none; padding-left: 0; }
+.detail-section ol { list-style: decimal; }
+
+.detail-section ul li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Custom bullet — a small gold dash */
+.detail-section ul li::before {
+  content: '—';
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  flex-shrink: 0;
+}
+
+.detail-section ol li {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: var(--sp-2);
+}
+
 /* ── Code block ─────────────────────────────────────────────── */
 .detail-code {
   background: var(--bg-surface);
