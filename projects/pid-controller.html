@@ -217,29 +217,44 @@
               The motor outputs are adjusted using PWM signals through IRLZ44N MOSFETs, allowing the system to increase 
               thrust on one side and reduce it on the other to counteract tilt.
             </p>
-            
+
           </section>
 
           <section class="detail-section">
             <h2>Engineering challenges</h2>
             <!-- EDIT: describe the real problems you ran into -->
             <p>
-              Describe the specific technical challenges you faced during this project.
-              What didn't work the way you expected? What took the longest to figure out?
+              Electrical Noise: When the motors were connected, the MPU6050 readings became unstable and serial communication frequently stopped. 
+              The brushed DC motors generated significant electrical noise that interfered with the IMU and Arduino power rails.
             </p>
             <p>
-              Be specific — a recruiter or engineer reading this wants to see how you
-              think through problems, not just that the project worked.
+              This was solved by:
             </p>
-          </section>
+            <ul>
+              <li>Separating motor and logic power</li>
+              <li>Adding decoupling capacitors</li>
+              <li>Improving grounding and power stability</li>
+            </ul>
 
-          <section class="detail-section">
-            <h2>Future improvements</h2>
-            <!-- EDIT: what would you do next if you continued this project? -->
+            <p>Motor Deadzone: 
+              Small PWM values produced no physical motor movement, causing the controller to accumulate large integral values without correcting the system.
+              <br><br>
+              To solve this, a minimum output threshold was introduced so that small corrections would still produce meaningful motor response.
+            </p>
             <p>
-              If you were to continue this project, what would you change or add?
-              This could be hardware upgrades, algorithmic improvements, additional
-              features, or a completely different approach informed by what you learned.
+              Integral Windup: The integral term initially accumulated too aggressively, causing large bias errors and unstable behaviour.
+            </p>
+            <p>
+              The controller was improved by:
+            </p>
+            <ul>
+              <li>Constraining the integral term</li>
+              <li>Scaling integration using real elapsed time ($\text{dt}$)</li>
+              <li>Only integrating when the error was within a reasonable range</li>
+            </ul>
+            <p>Timing Consistency: The derivative term originally behaved inconsistently because loop timing was not accounted for.
+              <br><br>
+              The solution was to calculate the derivative using elapsed time measured with millis(), producing a much more stable and physically accurate response.
             </p>
           </section>
 
@@ -247,9 +262,34 @@
             <h2>Results</h2>
             <!-- EDIT: what did you achieve? What did you learn? -->
             <p>
-              What were the outcomes? Did it work as expected? What would you do differently?
-              Be honest — showing your thinking process is more impressive than a polished result.
+              The final system successfully stabilized around a target pitch angle and demonstrated the behaviour of a real PID-controlled balancing system.
             </p>
+            <p>
+              Key outcomes included:
+            </p>
+            <ul>
+              <li>Stable balancing behaviour</li>
+              <li>Reduced oscillation using derivative control</li>
+              <li>Improved steady-state accuracy through integral refinement</li>
+              <li>Real-time response to disturbances and tilt input</li>
+            </ul>
+            <p>
+              The project also provided a deeper understanding of how theoretical control systems interact with imperfect real-world hardware.
+            </p>
+          </section>
+
+          <section class="detail-section">
+            <h2>Future improvements</h2>
+            <!-- EDIT: what would you do next if you continued this project? -->
+            <p>
+              Improvements could include:
+            </p>
+            <ul>
+              <li>gyro angular velocity directly for the derivative term</li>
+              <li>Integrating joystick-based control inputs</li>
+              <li>Expanding from single-axis to full multi-axis stabilization</li>
+              <li>Transitioning to a complete quadcopter platform</li>
+            </ul>
           </section>
 
           <!-- Add more sections as needed:
