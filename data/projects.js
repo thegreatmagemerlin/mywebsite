@@ -31,8 +31,8 @@ const PROJECTS = [
   {
     id:          'pid-controller',
     title:       'PID Controller System',
-    summary:     'A PID control system built to [brief summary — fill this in].',
-    description: 'A longer description of what the project does, what problem it solves, and what you learned. You can write 2-3 sentences here. This shows on the projects listing page.',
+    summary:     'A PID control system built to learn feedback control.',
+    description: 'Arduino-based single-axis drone stabilisation system using an MPU6050 and PID control to balance in real time while exploring practical control systems engineering.',
     tags:        ['Control Systems', 'Embedded', 'C++', 'Mechatronics'],
     category:    'Engineering',
     year:        '2026',
@@ -43,6 +43,21 @@ const PROJECTS = [
   },
 
   // ── ADD YOUR NEXT PROJECT BELOW THIS LINE ─────────────────
+
+  {
+    id:          'open-differential',
+    title:       'Open Differential',
+    summary:     'A fully 3D-printed open differential designed in SolidWorks, built as part of a broader RC car project.',
+    description: 'Designed in SolidWorks and printed in PLA, the differential covers bevel gear design, assembly constraints, and iterative prototyping.',
+    tags:        ['CAD', 'Mechanical', '3D Printing'],
+    category:    'Engineering',
+    year:        '2026',
+    status:      'Complete',
+    featured:    false,
+    url:         'projects/open-differential.html',
+    thumb:       null,
+  },
+
   // {
   //   id:          'my-next-project',
   //   title:       'My Next Project',

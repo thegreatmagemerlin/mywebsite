@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- EDIT: update title and description for each project -->
-  <meta name="description" content="PID Controller System — project by Shanks." />
-  <title>PID Controller / Shanks</title>
+  <meta name="description" content="Open Differential — project by Shanks." />
+  <title>Open Differential / Shanks</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -71,19 +71,18 @@
       </div>
 
       <!-- EDIT: project title -->
-      <h1 class="detail-header__title">PID Controller System</h1>
+      <h1 class="detail-header__title">Open Differential</h1>
 
       <!-- EDIT: one sentence that captures the project's purpose -->
       <p class="detail-header__lead">
-        Arduino-based single-axis drone stabilisation system using an MPU6050 and PID control to balance in real time while exploring practical control systems engineering.
+        Designed in SolidWorks and printed in PLA, the differential covers bevel gear design, assembly constraints, and iterative prototyping.
       </p>
 
       <!-- EDIT: your tags — must match what's in data/projects.js -->
       <div class="detail-header__tags">
-        <span class="tag">Control Systems</span>
-        <span class="tag">Embedded</span>
-        <span class="tag">C++</span>
-        <span class="tag">Mechatronics</span>
+        <span class="tag">CAD</span>
+        <span class="tag">Mechanical</span>
+        <span class="tag">3D Printing</span>
       </div>
 
     </div>
@@ -159,14 +158,15 @@
             <h2>Overview</h2>
             <!-- EDIT: what is this project? What does it do? -->
             <p>
-              This project is a single-axis drone stabilization platform built to learn and implement PID control in a real embedded system.
+              This is a fully 3D-printed open differential, designed from scratch in SolidWorks 
+              and built as a functional mechanical prototype. It was originally intended as a 
+              drivetrain component for an RC car, a stepping stone project before eventually 
+              tackling a drone build.
               <br><br>
-              Using an Arduino, an MPU6050 IMU, and two DC motors, the system measures pitch angle in real time and applies corrective motor 
-              output to balance around a target angle. The platform was designed as a simplified drone control system to isolate and understand 
-              the core principles behind quadcopter stabilization before moving to a full multi-axis drone.
-              <br><br>
-              The project focuses not only on implementing PID mathematically, but also on solving the real-world engineering problems that appear 
-              in physical control systems, including electrical noise, actuator dead zones, timing inconsistencies, and integral windup.
+              The project covers mechanical CAD assembly, bevel gear design, tolerance analysis, 
+              and iterative prototyping with FDM printing. The core mechanism works, though the 
+              prototype isn't vehicle-ready yet the housing needs refinement and the motor 
+              needs upgrading before it can go into an actual car.
             </p>
           </section>
 
@@ -174,47 +174,45 @@
             <h2>The problem</h2>
             <!-- EDIT: what problem were you solving, or what motivated the project? -->
             <p>
-              A drone remains stable by continuously correcting its orientation. Even small tilts must be detected and corrected rapidly to prevent instability.
+              An open differential allows two output shafts to rotate at different speeds 
+              while receiving torque from a single input. This matters because when a car 
+              corners, the outer wheel travels a larger arc than the inner wheel. If both 
+              wheels are forced to spin at the same speed, you get tyre scrubbing and 
+              drivetrain stress. A differential lets each wheel rotate at whatever speed 
+              it needs to.
               <br><br>
-              The challenge was to build a system capable of:
-              <ul>
-                <li>Accurately measuring pitch angle in real-time</li>
-                <li>Determining how far the system is from the target angle</li>
-                <li>Applying motor corrections smoothly and quickly enough to restore balance</li>
-              </ul>
-              </p>
-              
-              <p>
-              A major difficulty was that real hardware behaves differently from ideal mathematical models. 
-              Motors do not respond linearly at low PWM values, sensors contain noise, and timing inconsistencies 
-              can destabilize the controller. The project therefore became an exercise in both control theory and 
-              practical embedded systems engineering.
+              The goal was to design and build a working one from scratch. Not to use an 
+              off-the-shelf unit, but to actually understand the mechanism by building it.
+              <br><br>
+              The engineering challenge broke down into three parts: getting the gear 
+              assembly designed and mated correctly in SolidWorks, translating that 
+              into physically printable parts with real-world tolerances, and figuring 
+              out how to actually assemble something with components that depend on each 
+              other.
             </p>
+              
           </section>
 
           <section class="detail-section">
             <h2>How it works</h2>
             <!-- EDIT: explain the technical approach -->
             <p>
-              The MPU6050 IMU measures the pitch angle of the system in real time using its onboard Digital Motion 
-              Processor (DMP). The Arduino reads this angle and compares it to a target setpoint of 0°.
+              An open differential has four main components: a ring gear driven by the 
+              pinion (input from the motor), a carrier that rotates with the ring 
+              gear, two spider gears mounted inside the carrier on a cross-shaft, 
+              and two axle gears connected to each output shaft.
               <br><br>
-              The controller then calculates an error value:
-            </p>
-            <p>$\text{Error} = \text{Setpoint} - \text{Measured Angle}$</p>
-            <p>
-              A PID controller is used to generate corrective motor output:
-            </p>
-            <p>$\text{Output} = \text{Kp} \cdot \text{Error} + \text{Ki} \cdot \int \text{Error} \cdot \text{dt} + \text{Kd} \cdot \text{d(Error)} / \text{dt}$</p>
-            <p>Each term serves a different purpose:</p>
-            <ul>
-              <li>Proportional (P): Reacts to current tilt error and provides the main corrective force.</li>
-              <li>Integral (I): Corrects long-term offset and steady-state error.</li>
-              <li>Derivative (D): Dampens oscillation by reacting to rapid motion.</li>
-            </ul>
-            <p>
-              The motor outputs are adjusted using PWM signals through IRLZ44N MOSFETs, allowing the system to increase 
-              thrust on one side and reduce it on the other to counteract tilt.
+              In a straight line, the spider gears don't rotate relative to the 
+              carrier. They lock the two axle gears together and torque splits evenly. 
+              In a corner, resistance builds on one wheel, which causes the spider 
+              gears to rotate on their own axis, allowing the two axle gears to turn 
+              at different speeds while the carrier keeps receiving input torque.
+              <br><br>
+              The gear ratio between the pinion and ring gear sets the torque 
+              multiplication and speed reduction from motor to axle. For this 
+              prototype, the ratio was chosen to balance printability (larger 
+              teeth are more forgiving to manufacture) with reasonable speed 
+              reduction for the motor being used.
             </p>
 
           </section>
@@ -223,37 +221,53 @@
             <h2>Engineering challenges</h2>
             <!-- EDIT: describe the real problems you ran into -->
             <p>
-              Electrical Noise: When the motors were connected, the MPU6050 readings became unstable and serial communication frequently stopped. 
-              The brushed DC motors generated significant electrical noise that interfered with the IMU and Arduino power rails.
-            </p>
-            <p>
-              This was solved by:
-            </p>
-            <ul>
-              <li>Separating motor and logic power</li>
-              <li>Adding decoupling capacitors</li>
-              <li>Improving grounding and power stability</li>
-            </ul>
+              <b>SolidWorks Assembly Constraints</b><br>
+              The bevel gears from the SolidWorks Design Toolbox are generated as 
+              assemblies, not parts. That became a problem once I needed to add 
+              custom geometry (likeshafts, spider gear mounts) because those modifications 
+              required editable part files. Converting an assembly to a part in 
+              SolidWorks strips the parametric features and breaks the existing mates, 
+              since reference geometry doesn't carry over cleanly.
+              <br><br>
+              The workaround: build the complete assembly with all mates intact first, then convert each gear to a part, add the required custom geometry to each one, and re-import and re-mate everything from scratch in the main assembly. It took a while, but keeping clean file names and a consistent process made it manageable.
+              <br><br>
 
-            <p>Motor Deadzone: 
-              Small PWM values produced no physical motor movement, causing the controller to accumulate large integral values without correcting the system.
+              <b>FDM Printing and Anisotropy</b><br>
+              The first axle shafts broke quickly. They'd been printed vertically 
+              along the shaft axis, which put the gear interface perpendicular to the 
+              layer lines, which was the worst possible orientation for torsional load 
+              on an FDM part. They snapped cleanly at the joint under minimal force.
               <br><br>
-              To solve this, a minimum output threshold was introduced so that small corrections would still produce meaningful motor response.
-            </p>
-            <p>
-              Integral Windup: The integral term initially accumulated too aggressively, causing large bias errors and unstable behaviour.
-            </p>
-            <p>
-              The controller was improved by:
-            </p>
-            <ul>
-              <li>Constraining the integral term</li>
-              <li>Scaling integration using real elapsed time ($\text{dt}$)</li>
-              <li>Only integrating when the error was within a reasonable range</li>
-            </ul>
-            <p>Timing Consistency: The derivative term originally behaved inconsistently because loop timing was not accounted for.
+              The fix was redesigning the connection as a keyed slot: a profiled cut in the gear bore that the shaft seats into mechanically. This moved load transfer from layer adhesion to geometry, which is much more reliable. Re-orienting the print to improve layer adhesion in the load direction helped further. A hand-twist test confirmed the redesigned joint was strong enough to be usable.
               <br><br>
-              The solution was to calculate the derivative using elapsed time measured with millis(), producing a much more stable and physically accurate response.
+              
+              <b>Bearing Fit and Tolerances</b><br>
+              The ball bearings (I bought this time as printed bearings aren't 
+              appropriate for precision rotating parts) required accurate shaft 
+              diameters to get a proper fit. Without callipers, I had to print a 
+              series of test shafts at incremental sizes to find what worked empirically. 
+              The 0.2mm nozzle helped here as smaller layer lines gave better dimensional 
+              accuracy on the shaft and gear tooth geometry.
+              <br><br>
+              
+              <b>Assembly Sequence Problem</b><br>
+              During assembly, I ran into a sequencing issue: the spider gears couldn't be inserted once the axle gears were in place, and the axle gears couldn't go in if the spider gears were already mounted. Everything was geometrically locked with no valid assembly order.
+              <br><br>
+              The fix was to split the spider gear mounts into separate 
+              pieces that could be assembled in stages and then connected with tab inserts. 
+              This is a fairly standard design-for-assembly consideration, and one I should 
+              have thought through at the CAD stage.
+              <br><br>
+              
+              <b>Housing Tolerances</b><br>
+              The housing took the most iterations. The first three prints either 
+              clamped the internals too tight to move, or had misaligned holes that 
+              wouldn't accept fasteners. Without callipers, each iteration meant 
+              printing the full housing and testing by assembly, then adjusting 
+              geometry based on what failed. The current version fits and assembles 
+              correctly, but is slightly loose on the pinion bore, which is fine on the bench 
+              but probably not reliable enough under vibration or real load.
+
             </p>
           </section>
 
@@ -261,19 +275,11 @@
             <h2>Results</h2>
             <!-- EDIT: what did you achieve? What did you learn? -->
             <p>
-              The final system successfully stabilized around a target pitch angle and demonstrated the behaviour of a real PID-controlled balancing system.
-            </p>
-            <p>
-              Key outcomes included:
-            </p>
-            <ul>
-              <li>Stable balancing behaviour</li>
-              <li>Reduced oscillation using derivative control</li>
-              <li>Improved steady-state accuracy through integral refinement</li>
-              <li>Real-time response to disturbances and tilt input</li>
-            </ul>
-            <p>
-              The project also provided a deeper understanding of how theoretical control systems interact with imperfect real-world hardware.
+              The prototype demonstrates correct differential action: the ring and pinion mesh properly, the spider gears allow independent rotation between the two output axles, and the assembly can be taken apart and put back together repeatedly. It works as intended under light, static conditions.
+              <br><br>
+              It's not vehicle-ready. The pinion bore in the housing is too loose to maintain reliable mesh under dynamic load, and the motor (a basic Arduino kit DC motor on a 1S LiPo) is undersized for driving an actual chassis at useful speeds.
+              <br><br>
+              What the project did accomplish was going through the full design-to-manufacture cycle for a complex mechanical assembly, and running into most of the manufacturing constraints that CAD doesn't show you.
             </p>
           </section>
 
@@ -284,10 +290,10 @@
               Improvements could include:
             </p>
             <ul>
-              <li>gyro angular velocity directly for the derivative term</li>
-              <li>Integrating joystick-based control inputs</li>
-              <li>Expanding from single-axis to full multi-axis stabilization</li>
-              <li>Transitioning to a complete quadcopter platform</li>
+              <li>Housing redesign: Tighter bore tolerances on the pinion shaft, ideally with a proper bearing seat rather than a printed hole. Using callipers throughout would remove a lot of the guesswork.</li>
+              <li>Motor upgrade: Something with enough torque and speed range for the drivetrain gear ratio, rather than a generic kit motor.</li>
+              <li>Steering geometry: If this becomes a full RC car, front axle steering (Ackermann geometry) is the next mechanical problem to solve.</li>
+              <li>Callipers: Just buy them.</li>
             </ul>
           </section>
 
@@ -320,7 +326,7 @@
 
               <!-- EDIT: add/remove tools as needed -->
               <dt>Tools</dt>
-              <dd>C++, Arduino, MATLAB</dd>
+              <dd>SolidWorks, 3D Printing, Design</dd>
 
             </dl>
           </div>
@@ -330,11 +336,6 @@
             <h3 class="sidebar-card__title">Links</h3>
             <div class="sidebar-links">
 
-              <!-- EDIT: replace # with real URLs, or remove the block -->
-              <a href="https://github.com/thegreatmagemerlin/PID-test-system" class="sidebar-link" target="_blank">
-                <span>GitHub repo</span>
-                <span class="sidebar-link__arrow">↗</span>
-              </a>
 
               <!-- Uncomment if you have a live demo -->
               <!--
